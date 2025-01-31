@@ -1,0 +1,147 @@
+
+.home-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.text-container{
+    margin-right: 30px;
+}
+
+.greeting,
+.name{
+    font-size: 34px;
+    margin: 2px 0;
+    font-weight: 800;
+}
+
+.name-highlight {
+    color: #8a2be2;
+}
+
+.profile-image {
+    width: 250px; /* 設定圖片寬度 */
+    height: auto; /* 保持圖片的比例 */
+    border-radius: 50%; /* 圓形圖片 */
+    margin-right: 40px;
+}
+
+// 連結按鈕
+.contact-links {
+    display: flex;
+    justify-content: flex-start;
+    }
+    
+    .contact-link {
+        display: flex;
+        align-items: center;
+        padding: 5px 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: rgb(249, 249, 249);
+        text-decoration: none;
+        color: #333;
+        font-size: 14px;
+        margin-right: 5px;
+      }
+
+    .contact-link i{
+        margin-right: 5px;
+    }
+    
+    .contact-link:hover {
+    background-color: #f0f0f0;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+
+
+.home-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+.text-container{
+    margin-right: 30px;
+}
+
+.greeting,
+.name{
+    font-size: 34px;
+    margin: 2px 0;
+    font-weight: 800;
+}
+
+.name-highlight {
+    color: #8a2be2;
+}
+
+.profile-image {
+    width: 250px; /* 設定圖片寬度 */
+    height: auto; /* 保持圖片的比例 */
+    border-radius: 50%; /* 圓形圖片 */
+    margin-right: 40px;
+}
+
+// 連結按鈕
+.contact-links {
+    display: flex;
+    justify-content: flex-start;
+    }
+    
+    .contact-link {
+        display: flex;
+        align-items: center;
+        padding: 5px 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        background-color: rgb(249, 249, 249);
+        text-decoration: none;
+        color: #333;
+        font-size: 14px;
+        margin-right: 5px;
+      }
+
+    .contact-link i{
+        margin-right: 5px;
+    }
+    
+    .contact-link:hover {
+    background-color: #f0f0f0;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.1);
+    }
+    
+// 響應式設置：當螢幕寬度小於 768px 時
+@media (max-width: 768px) {
+    .home-wrapper {
+        flex-direction: column;  /* 讓圖片和文字垂直排列 */
+        align-items: center;  /* 居中顯示 */
+        padding: 20px;  /* 增加內邊距 */
+    }
+
+    .text-container {
+        margin-right: 0; /* 去掉右邊間距 */
+        width: 100%; /* 讓文字區塊占據全部寬度 */
+    }
+
+    .profile-image {
+        width: 200px; /* 調整圖片大小 */
+        margin-bottom: 20px; /* 在圖片下方留出空間 */
+        align-items: center;  /* 居中顯示 */
+    }
+
+
+    .contact-links {
+        justify-content: center; /* 使按鈕水平居中 */
+    }
+
+    .contact-link {
+        font-size: 12px;  /* 調整按鈕字體大小 */
+        padding: 5px 8px;  /* 調整按鈕的內邊距 */
+        margin-bottom: 10px; /* 增加按鈕之間的間距 */
+    }
+
+    .contact-link i {
+        margin-right: 3px; /* 調整圖示和文字的間距 */
+    }
+}
