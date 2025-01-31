@@ -3,36 +3,42 @@ import Photo1 from '../images/Swimlogo.png'
 import Photo2 from '../images/Loanlogo.png'
 
 
-// 子組件
-const ProjectCard = ({ projectName, description, imgSrc, tools, date, githubLink, demoLink }) => {
+interface ProjectCardProps {
+    projectName: string;
+    description: string;
+    imgSrc: string;
+    tools: string;
+    date: string;
+    githubLink: string;
+    demoLink: string;
+  }
+  
+  const ProjectCard: React.FC<ProjectCardProps> = ({ projectName, description, imgSrc, tools, date, githubLink, demoLink }) => {
     const [isFlipped, setIsFlipped] = useState(false);
-
+  
     const handleCardClick = () => {
-        setIsFlipped(!isFlipped); // 點擊時翻轉卡片 // 邏輯非運算符（!）
+      setIsFlipped(!isFlipped); // 點擊時翻轉卡片
     };
-    // project-card 的兩種結構
+  
     return (
-        <div className={`project-card ${isFlipped ? 'flipped' : ''}`} onClick={handleCardClick}>  
-        {/*動態設置 HTML 元素的 className, 
-        條件運算符（也稱為三元運算符）->  condition ? valueIfTrue : valueIfFalse
-        */}
-            <div className="front">
-                <img src={imgSrc} alt="project" className="project-image" />
-                <h3>{projectName}</h3>
-            </div>
-            <div className="back">
-                <h3 className="project-name">{projectName}</h3>
-                <p className="project-description">{description}</p>
-                <p className="tools">{tools}</p>
-                <p className="date">{date}</p>
-                <div className="buttons">
-                    <a href={githubLink} className="button" target="_blank" rel="noopener noreferrer">GitHub</a>
-                    <a href={demoLink} className="button" target="_blank" rel="noopener noreferrer">Demo</a>
-                </div>
-            </div>
+      <div className={`project-card ${isFlipped ? 'flipped' : ''}`} onClick={handleCardClick}>
+        <div className="front">
+          <img src={imgSrc} alt="project" className="project-image" />
+          <h3>{projectName}</h3>
         </div>
+        <div className="back">
+          <h3 className="project-name">{projectName}</h3>
+          <p className="project-description">{description}</p>
+          <p className="tools">{tools}</p>
+          <p className="date">{date}</p>
+          <div className="buttons">
+            <a href={githubLink} className="button" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href={demoLink} className="button" target="_blank" rel="noopener noreferrer">Demo</a>
+          </div>
+        </div>
+      </div>
     );
-};
+  };
 
 // 父組件
 const Projects = () => {
