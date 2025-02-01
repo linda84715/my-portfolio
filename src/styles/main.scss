@@ -48,17 +48,12 @@
     position: relative;
     padding-bottom: 50px;  /* 留空間，避免箭頭壓到內容 */
     opacity: 0;  /* 初始隱形 */
-    animation: fade-in-up 1s ease-out forwards; /* 應用動畫，並且確保動畫結束後元素保留最終狀態 */
+    animation: fade-in-up 2s ease-out forwards; /* 應用動畫，並且確保動畫結束後元素保留最終狀態 */
   }
   
   /* 當區塊顯示時才應用顯示效果 */
   .show {
     opacity: 1;
-  }
-  
-  /* 滾動的過渡效果 */
-  html {
-    scroll-behavior: smooth; /* 使滾動過渡平滑 */
   }
   
   /* 箭頭按鈕的樣式 */
