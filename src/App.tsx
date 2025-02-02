@@ -18,7 +18,7 @@ function App() {
     // 設置防抖延遲，防止滾動太快
     setTimeout(() => {
       setIsScrolling(false);
-    }, 3000); // 延遲時間 400ms
+    }, 600); // 延遲時間 400ms
 
     if (e.deltaY > 0) {
       // 滾動向下，顯示下一個區塊
