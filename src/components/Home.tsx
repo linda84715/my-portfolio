@@ -1,4 +1,5 @@
 import headImage from '../images/head1.jpg'
+import resume from '../images/resume1.1.pdf'
 
 const Home = () => {
     return (
@@ -9,7 +10,7 @@ const Home = () => {
                     <p className="name">I am <span className='name-highlight'>Linda Lin</span></p>
                     <p className='description'>With a strong background in industrial engineering and computer science, and over six years of project management experience, I specialize in developing responsive web applications and managing new development projects.</p>
                     <div className="contact-links">
-                        <a href="/resume.pdf" className="contact-link">
+                        <a href={resume} className="contact-link">
                             <i className="fas fa-file-alt"></i> Resume
                         </a>
                         <a href="https://www.linkedin.com/in/li-hsuan-linda-lin-7b5a6b174/" className="contact-link">
