@@ -1,82 +1,68 @@
 import './styles/main.scss';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import About from './components/About';
 import Home from './components/Home';
 import Projects from './components/Projects';
+import { Element, Link } from 'react-scroll';
+import { motion } from 'framer-motion';
 
 function App() {
-  const [currentSection, setCurrentSection] = useState(0); // 控制顯示的區塊
-  const [isScrolling, setIsScrolling] = useState(false); // 控制滾動防抖
-
-  const scrollHandler = (e: WheelEvent) => {
-    if (isScrolling) return; // 防止重複滾動
-
-    setIsScrolling(true);
-
-    // 設置防抖延遲，防止滾動太快
-    setTimeout(() => {
-      setIsScrolling(false);
-    }, 600); // 延遲時間 400ms
-
-    if (e.deltaY > 0) {
-      // 滾動向下，顯示下一個區塊
-      if (currentSection < 2) {
-        setCurrentSection(currentSection + 1);
-      }
-    } else {
-      // 滾動向上，顯示上一個區塊
-      if (currentSection > 0) {
-        setCurrentSection(currentSection - 1);
-      }
-    }
-  };
-
   useEffect(() => {
-    window.addEventListener('wheel', scrollHandler, { passive: true });
-
-    return () => {
-      window.removeEventListener('wheel', scrollHandler);
-    };
-  }, [currentSection, isScrolling]);
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
-    <div className='app'>
-      <div className='container'>
-        {/* Navbar 固定在頂部 */}
-        <Navbar />
+    <div className="app-container">
+      {/* 固定的導航欄 */}
+      <Navbar />
 
-        {/* Home 區塊 */}
-        {currentSection === 0 && (
-          <div className="home-section show">
+      {/* 內容區域 */}
+      <main>
+        <Element name="home">
+          <section className="home-section">
             <Home />
-            <button onClick={() => setCurrentSection(1)} className="arrow-btn">
-              ⌄
-            </button>
-          </div>
-        )}
+            <Link to="about" smooth={true} duration={800}>
+              <div className="custom-arrow"></div> {/* V 形箭頭 */}
+            </Link>
+          </section>
+        </Element>
 
-        {/* About 區塊 */}
-        {currentSection === 1 && (
-          <div className="about-section show">
+        <Element name="about">
+          <motion.section
+            className="about-section"
+            initial={{ opacity: 0, x: 50 }} // 初始時完全透明，並稍微向右偏移 50px
+            whileInView={{ opacity: 1, x: 0 }} // 進入視野後，淡入並回到原來的位置
+            transition={{
+              duration: 0.7, // 0.7 秒完成動畫
+              ease: [0.5, 0.3, 0.15, 0.86], // 🔥 快速開始，慢慢停止
+              delay: 0.4 // 🔥 延遲 0.3 秒後才開始動畫
+            }}
+            viewport={{ once: false, amount: 0.3 }} // 每次滾過來都觸發動畫
+          >
             <About />
-            <button onClick={() => setCurrentSection(2)} className="arrow-btn">
-              ⌄
-            </button>
-          </div>
-        )}
+            <Link to="projects" smooth={true} duration={800}>
+              <div className="custom-arrow"></div>
+            </Link>
+          </motion.section>
+        </Element>
 
-        {/* Projects 區塊 */}
-        {currentSection === 2 && (
-          <div className="projects-section show">
+        <Element name="projects">
+          <motion.section
+            className="projects-section"
+            initial={{ opacity: 0, y: 50 }} // Projects 繼續使用淡入 + 向上動畫
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+            viewport={{ once: false, amount: 0.3 }}
+          >
             <Projects />
-          </div>
-        )}
-      </div>
+          </motion.section>
+        </Element>
+      </main>
 
-      {/* 只在 Projects 區塊下面顯示 Footer */}
-      {currentSection === 2 && <Footer />}
+      {/* 頁腳 */}
+      <Footer />
     </div>
   );
 }

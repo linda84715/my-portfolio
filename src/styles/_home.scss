@@ -139,6 +139,13 @@
         width: 100%; /* 讓文字區塊占據全部寬度 */
     }
 
+    .greeting,
+.name{
+    font-size: 28px;
+    margin: 2px 0;
+    font-weight: 800;
+}
+
     .image-container{
         margin: 15px 0;
     }

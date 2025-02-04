@@ -7,6 +7,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css');
 
+/* 全局樣式 */
+body {
+  font-family: "Poppins", serif;
+  width: 100vw;
+  overflow-x: hidden; // 禁止水平滾動
+}
+
+.container {
+  margin: 0 auto; /* 使容器居中 */
+  padding: 0px 50px;
+  margin-top: 200px;
+  padding-bottom: 80px; /* 確保內容不會被 Footer 遮擋 */
+}
+
+// 確保 main 內容不會被 Navbar 遮住
+main {
+  margin-top: 80px; // 避免內容與 Navbar 重疊
+  margin: 0 40px;
+}
+
+// 各區塊樣式
+.home-section,
+.about-section,
+.projects-section {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+// 讓 about 和 projects 預設隱藏
+.fade-in-target {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+// 當滾動到該區塊時觸發動畫
+.fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
 /* @keyframes 動畫定義 */
 @keyframes fade-in-up {
   0% {
@@ -19,69 +63,29 @@
   }
 }
 
-/* 全局樣式 */
-body {
-  font-family: "Poppins", serif;
-}
-
-.container {
-  margin: 0 auto; /* 使容器居中 */
-  padding: 0px 50px;
-  margin-top: 200px;
-  padding-bottom: 80px; /* 確保內容不會被 Footer 遮擋 */
-}
-
-/* 固定 navbar 在頁面頂部 */
-.navbar {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background-color: #fff;
-  z-index: 10;
-  padding: 5px 30px;
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-/* 各區塊的過渡效果 */
-.home-section, .about-section, .projects-section {
-  position: relative;
-  padding-bottom: 50px; /* 留空間，避免箭頭壓到內容 */
-  opacity: 0; /* 初始隱形 */
-  animation: fade-in-up 2s ease-out forwards; /* 應用動畫，並且確保動畫結束後元素保留最終狀態 */
-}
-
-/* 當區塊顯示時才應用顯示效果 */
-.show {
-  opacity: 1;
-}
-
-/* 箭頭按鈕的樣式 */
-.arrow-btn {
-  font-size: 50px;
-  padding: 0px;
-  border: none;
-  color: #858585;
-  cursor: pointer;
-  border-radius: 20%;
-  background-color: transparent;
-  transition: background-color 0.3s;
-  position: absolute;
-  bottom: 5px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.arrow-btn:hover {
-  color: rgb(213, 213, 213);
-}
-
-/* 控制顯示的區塊，使用 translateY 來隱藏和顯示 */
-.home-section.hide, .about-section.hide {
-  transform: translateY(-100%); /* 隱藏，移動到視窗外 */
-}
-
-/* 給每個區塊額外的樣式 */
-.about-section, .projects-section {
+// 自訂 V 形箭頭
+.custom-arrow {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-right: 3px solid #7e7e7e;
+  border-bottom: 3px solid #7e7e7e;;
+  transform: rotate(45deg);
   margin-top: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+
+  &:hover {
+    transform: rotate(45deg) scale(1.2);
+    border-color: #d1d0d0;
+  }
+}
+
+// Footer 設計
+.footer {
+  width: 100%;
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 20px;
 }
