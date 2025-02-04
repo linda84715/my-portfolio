@@ -17,8 +17,6 @@ function App() {
     <div className="app-container">
       {/* 固定的導航欄 */}
       <Navbar />
-
-      {/* 內容區域 */}
       <main>
         <Element name="home">
           <section className="home-section">
@@ -32,12 +30,12 @@ function App() {
         <Element name="about">
           <motion.section
             className="about-section"
-            initial={{ opacity: 0, x: 50 }} // 初始時完全透明，並稍微向右偏移 50px
+            initial={{ opacity: 0 }} // 初始時完全透明，並稍微向右偏移 50px
             whileInView={{ opacity: 1, x: 0 }} // 進入視野後，淡入並回到原來的位置
             transition={{
               duration: 0.7, // 0.7 秒完成動畫
-              ease: [0.5, 0.3, 0.15, 0.86], // 🔥 快速開始，慢慢停止
-              delay: 0.4 // 🔥 延遲 0.3 秒後才開始動畫
+              ease: [0.5, 0.3, 0.15, 0.86], // 快速開始，慢慢停止
+              delay: 0.4 // 延遲 0.3 秒後才開始動畫
             }}
             viewport={{ once: false, amount: 0.3 }} // 每次滾過來都觸發動畫
           >
@@ -51,16 +49,15 @@ function App() {
         <Element name="projects">
           <motion.section
             className="projects-section"
-            initial={{ opacity: 0, y: 50 }} // Projects 繼續使用淡入 + 向上動畫
+            initial={{ opacity: 0, }} // Projects 繼續使用淡入 + 向上動畫
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: 'easeOut' }}
+            transition={{ duration: 0.8, ease: 'easeOut', delay:0.4 }}
             viewport={{ once: false, amount: 0.3 }}
           >
             <Projects />
           </motion.section>
         </Element>
       </main>
-
       {/* 頁腳 */}
       <Footer />
     </div>
