@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Photo1 from '../images/Swimlogo.png'
-import Photo2 from '../images/Loanlogo.png'
+import Photo2 from '../images/Loanlogo.jpg'
 
 
 interface ProjectCardProps {
