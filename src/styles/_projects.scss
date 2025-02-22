@@ -1,9 +1,12 @@
-.projects-container {
-    display: flex;
-    gap: 100px;
-    justify-content: center;
 
-  }
+  .projects-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 設置每列兩個卡片 */
+    gap: 80px; /* 調整卡片之間的間距 */
+    row-gap: 50px;
+    justify-items: center; /* 讓卡片在水平方向上居中 */
+    padding: 30px 0px;
+}
 
 .projects-title {
     text-align: center;
@@ -55,19 +58,18 @@
     flex-direction: column;
     transform: rotateY(180deg);
     box-sizing: border-box; /* 確保 padding 不會改變元素的總大小 */
-    margin: 2px, 0px;
   }
   
   .project-card .back h3 {
     font-size: 18px;
-    margin: 12px,0px;
     height: 50px;
     display: flex;
     align-items: center;
+    margin: 10px 0px;
   }
   
   .project-card .back p {
-    height: 110px;
+    height: 130px;
     font-size: 14px;
     color: #333;
     margin: 8px 0px;
@@ -75,7 +77,7 @@
   
   .project-card .back .tools {
     font-size: 14px;
-    color: #555;
+    color: #6f22b6;
     height: 40px;
   }
   
@@ -114,12 +116,11 @@
     transform: rotateY(0);
   }
   
-
-  // 響應式設置：當螢幕寬度小於 768px 時
+/* 響應式設置：當螢幕寬度小於 768px 時，單列顯示卡片 */
 @media (max-width: 768px) {
-    .projects-container {
-        flex-direction: column;  /* 讓圖片和文字垂直排列 */
-        align-items: center;  /* 居中顯示 */
-        padding: 20px;  /* 增加內邊距 */
-    }
+  .projects-container {
+      grid-template-columns: 1fr;  /* 當螢幕寬度小於 768px 時，設置每行顯示一個卡片 */
+      padding: 20px;  /* 增加內邊距 */
+  }
 }
+

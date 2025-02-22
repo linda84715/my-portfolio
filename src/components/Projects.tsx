@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import Photo1 from '../images/Swimlogo.png'
 import Photo2 from '../images/Loanlogo.jpg'
+import Photo3 from '../images/database.png'
+import Photo4 from '../images/covid19.png' 
 
 
 interface ProjectCardProps {
@@ -29,7 +31,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ projectName, description, img
       <div className="back">
         <h3 className="project-name">{projectName}</h3>
         <p className="project-description">{description}</p>
-        <p className="tools">{tools}</p>
+        <p className="tools">Tool : {tools}</p>
         <p className="date">{date}</p>
         <div className="buttons">
           <a href={githubLink} className="button" target="_blank" rel="noopener noreferrer">GitHub</a>
@@ -63,6 +65,24 @@ const Projects = () => {
           date="02/2024"
           githubLink="https://github.com/linda84715/Predicting-Loan-Defaults"
           demoLink="https://github.com/linda84715/Predicting-Loan-Defaults/blob/main/Loan%20Defaults%20Case%20Study%20Jupyterbook.pdf"
+        />
+        <ProjectCard
+          projectName="Library Management System Database Design"
+          description="Led a team of four to design a Library Database System for resource tracking, member management, and loan transactions. Created ER/UML diagrams, translated to relational schema, and achieved 3NF normalisation."
+          imgSrc={Photo3}   // 用實際圖片路徑替換
+          tools="Database, Data Structure, MySQL, 3NF, ER/UML diagrams, draw.io"
+          date="12/2023"
+          githubLink="https://github.com/linda84715/Library-Database-System"
+          demoLink="https://github.com/linda84715/Library-Database-System/blob/main/Library%20Database%20System_Linda.pdf"
+        />
+                <ProjectCard
+          projectName="Covid-19 Data Analysis and Visualization Dashboard"
+          description="Developed a Covid-19 dashboard fetching real-time data from Public Health England’s APIs. Performed data manipulation and visualization, created an interactive UI with iPython Widgets, and deployed it with Voila for web-based real-time presentation."
+          imgSrc={Photo4}   // 用實際圖片路徑替換
+          tools="iPython Widgets, Pandas, Matplotlib, Binder, JSON"
+          date="12/2023"
+          githubLink="https://github.com/linda84715/COVID-19-DASHBOARD?tab=readme-ov-file"
+          demoLink="https://github.com/linda84715/COVID-19-DASHBOARD/blob/main/Dashboard.ipynb"
         />
       </div></div>
   );
