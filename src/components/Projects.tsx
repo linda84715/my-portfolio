@@ -12,8 +12,8 @@ interface ProjectCardProps {
   imgSrc: string;
   tools: string;
   date: string;
-  githubLink: string;
-  demoLink: string;
+  githubLink?: string; //optional
+  demoLink?: string;
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({
