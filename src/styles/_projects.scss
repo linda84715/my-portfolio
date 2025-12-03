@@ -65,33 +65,41 @@
     height: 50px;
     display: flex;
     align-items: center;
-    margin: 10px 0px;
+    margin: 6px 0px;
   }
   
   .project-card .back p {
     height: 130px;
     font-size: 14px;
     color: #333;
+    margin: 0px;
+  }
+
+  .project-card .back .project-description {
+    font-size: 14px;
+    height: 140px;
     margin: 8px 0px;
   }
   
   .project-card .back .tools {
     font-size: 14px;
     color: #6f22b6;
-    height: 40px;
+    height: 45px;
+    margin: 8px 0px;
   }
   
   .project-card .back .date {
     font-size: 14px;
     color: #777;
     height: 20px;
+    margin: 16px 0px 0px 0px;
   }
   
   .project-card .buttons {
     display: flex;
     gap: 15px;
     justify-content: center;
-    margin-top: 10px;
+    margin-top: 5px;
   }
   
   .project-card .button {
